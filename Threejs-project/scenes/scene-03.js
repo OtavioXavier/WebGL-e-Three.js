@@ -15,10 +15,10 @@ path.quadraticCurveTo(0.3, 1,0.3, 1.5);
 
 const geometry = new THREE.ExtrudeBufferGeometry(
     path, {
-      depth: 0.4,
+      depth: 0.04,
       bevelEnabled: true,
-      bevelSize:1,
-      bevelThickness: 0.5
+      bevelSize:0.1,
+      bevelThickness: 0.2
 
     }
 );
