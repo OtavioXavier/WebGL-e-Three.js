@@ -6,8 +6,11 @@ const options = {
   backgroundColor: 0x222222,
 };
 
-// Instanciando um renderizador webGl.
-const renderer = new THREE.WebGLRenderer();
+// Instanciando um renderizador webGl e tirando o serrilhado.
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+
+//Garantir que a resulçao vai se adaptar a tela   
+renderer.setPixelRatio(window.devicePixelRatio);
 
 //Definindo o tamanho da cena
 renderer.setSize(options.width, options.height);
@@ -23,7 +26,10 @@ scene.background = new THREE.Color(options.backgroundColor);
 //Criando e definindo as opções da camera
 const camera = new THREE.PerspectiveCamera(50, options.width / options.height);
 
-camera.position.z = 5;
+camera.position.z = 10;
+camera.position.y = 3.83;
+camera.position.x = 10 ;
+
 
 /* const light = new THREE.AmbientLight(
     //respectivamente cor e intensidade da luz
@@ -31,7 +37,7 @@ camera.position.z = 5;
 ); */
 
 const light = new THREE.HemisphereLight(
-  // Recebe a cor da luz do chão, a luz do ceu e a intensidade respectivamente
+  // Recebe a cor da luz do chão, a cor da luz do ceu e a intensidade respectivamente
   0xffffbb,
   0x080820,
   2
@@ -40,12 +46,15 @@ const light = new THREE.HemisphereLight(
 scene.add(light);
 
 const x3 = new THREEx3({
+  //A ordem não importa
   THREE,
   OrbitControls: THREE.OrbitControls,
-  camera,
   renderer,
+  camera,
   scene,
 });
 
-console.log(THREEx3);
-console.log(THREE.OrbitControls);
+//Controles de Camera
+x3.add(camera, { open: false });
+//Controles de Luz
+x3.add(light);
