@@ -1,9 +1,4 @@
-const path = new THREE.Path();
-const geometry = new THREE.BufferGeometry();
-const material = new THREE.LineBasicMaterial( {
-    color: 0xFFFFFF,
-} );
-const draw = new THREE.Line(geometry,material);
+const path = new THREE.Shape();
 
 //respectivamente x e y no plano carteziano
 path.moveTo(0.3, 1.5);
@@ -14,9 +9,27 @@ path.quadraticCurveTo(2.5, 2.2 ,2.5, 1.5);
 path.quadraticCurveTo(2.5, 1 ,1.4, 0.3);
 path.quadraticCurveTo(0.3, 1,0.3, 1.5);
 
+/* const geometry = new THREE.ShapeBufferGeometry(
+  path
+); */
 
+const geometry = new THREE.ExtrudeBufferGeometry(
+    path, {
+      depth: 0.4,
+      bevelEnabled: true,
+      bevelSize:1,
+      bevelThickness: 0.5
 
-geometry.setFromPoints(path.getPoints());
+    }
+);
+
+const material = new THREE.MeshLambertMaterial({
+    color: 0xE6454E,
+    side: THREE.DoubleSide
+});
+
+const draw = new THREE.Mesh(geometry,material);
+
 scene.add(draw);
 
 renderer.setAnimationLoop(() => {
