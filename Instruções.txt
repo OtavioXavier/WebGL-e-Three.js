@@ -1,0 +1,27 @@
+THREE.Path() // Criar um path simples
+THREE.Shape() // Criar um Shape passivel de profundidade
+
+new THREE.MeshLambertMaterial() // Para criar um material de shape
+new THREE.LineBasicMaterial() // Para criar um material de linha simples
+
+new THREE.BufferGeometry() // Para crirar uma geometria de linha
+geometry.setFromPoints(path.getPoints()) // para adicionar as linhas a geometria
+
+new THREE.Line(geometry,material) // Criar a linha
+new THREE.Mesh(geometry,material) // Criar a Mesh
+
+new THREE.ExtrudeBufferGeometry // Para dar profundidade ao shape
+
+new THREE.PointLight // Para criar um ponto de luz
+new THREE.DirectionalLigth // Para criar um ponto de luz direcional(sol)
+new THREE.SpotLight // Para criar um ponto de luz de olofote
+
+renderer.shadowMap.enabled = true; // Liberar a emissão de sombras
+renderer.shadowMap.type = THREE.PCFSoftShadowMap //suavisar sombra
+renderer.physicallyCorrectLights = true // Liberar a fisica real
+"objeto".castShadow = true // Dizer que o objeto emite sombras
+"objeto".receiveShadow = true // Dizer que o objeto recebe sombras
+
+"luz".target = "object" // Fazer a dicetional light seguir um objeto especifico
+
+new THREE.TextureLoader() // Criar um carregador de texturas

@@ -19,7 +19,6 @@ const geometry = new THREE.ExtrudeBufferGeometry(
       bevelEnabled: true,
       bevelSize:0.1,
       bevelThickness: 0.2
-
     }
 );
 

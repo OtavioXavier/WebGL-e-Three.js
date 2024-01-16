@@ -26,9 +26,9 @@ scene.background = new THREE.Color(options.backgroundColor);
 //Criando e definindo as opções da camera
 const camera = new THREE.PerspectiveCamera(50, options.width / options.height);
 
-camera.position.z = 10;
-camera.position.y = 3.83;
-camera.position.x = 10 ;
+camera.position.z = 3;
+camera.position.y = 3;
+camera.position.x = 3 ;
 
 
 /* const light = new THREE.AmbientLight(
