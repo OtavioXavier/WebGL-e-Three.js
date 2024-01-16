@@ -26,9 +26,9 @@ const options = {
   //Criando e definindo as opções da camera
   const camera = new THREE.PerspectiveCamera(50, options.width / options.height);
   
-  camera.position.z = 3;
-  camera.position.y = 3;
-  camera.position.x = 3 ;
+  camera.position.z = -2;
+  camera.position.y = 10;
+  camera.position.x = -6 ;
   
   const light = new THREE.HemisphereLight(
     // Recebe a cor da luz do chão, a cor da luz do ceu e a intensidade respectivamente
@@ -62,3 +62,4 @@ const options = {
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.physicallyCorrectLights = true;
+  renderer.toneMapping = THREE.AgXToneMapping;
